@@ -19,7 +19,7 @@ workflows:
           container-image-name-updates: 'container=nginx-sample,image-and-tag=${AWS_ECR_ACCOUNT_URL}/nginx-sample:${CIRCLE_SHA1}'
 
           requires:
-            - aws-ecr/build-and-push-imag
+            - aws-ecr/build-and-push-image
           filters:
             branches:
               only: master
