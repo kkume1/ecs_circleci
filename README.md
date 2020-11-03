@@ -13,6 +13,11 @@
   - aws-ecr:circleci/aws-ecr@6.10.0
   - aws-ecs:circleci/aws-ecs@1.2.0  
 - 「aws-ecr:circleci/aws-ecr@6.10.0」が成功しないと、「aws-ecs:circleci/aws-ecs@1.2.0」は実行されません。  
+
+‘‘‘          requires:
+            - aws-ecr/build-and-push-image
+‘‘‘
+
 - 「aws-ecs:circleci/aws-ecs@1.2.0」はmasterブランチでのみ実行可能です。
 
 ## circleci側の設定について
