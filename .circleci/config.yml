@@ -5,15 +5,21 @@ orbs:
 workflows:
   build-and-deploy:
     jobs:
+      # ビルとテストを実行するジョブ
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           repo: 'nginx-sample'
           tag: '${CIRCLE_SHA1}'
 
-      # ECSへデプロイするジョブ
-      - aws-ecs/deploy-service-update:
+      - hold:
           requires:
             - aws-ecr/build-and-push-image
+          type: approval                       # プルリク承認まで待機
+
+      # ECSへデプロイを実行するジョブ
+      - aws-ecs/deploy-service-update:
+          requires:
+            - hold
           family: 'nginx-sample-Task'          # タスク名
           service-name: 'nginx-sample-Service' # サービス名
           cluster-name: 'nginx-sample-Cluster' # クラスタ名
