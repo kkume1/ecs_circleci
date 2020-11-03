@@ -16,8 +16,8 @@
 - 「aws-ecs:circleci/aws-ecs@1.2.0」はmasterブランチでのみ実行可能です。
 
 ## circleci側の設定について
-- AWS認証情報やECRのリポジトリURLはcircleciにて変数として設定しています。
-  circleci内にても展開された変数の内容は伏字にて表示されます。
+- AWS認証情報やECRのリポジトリURLはcircleciにて変数として設定しています。  
+  circleci内にても、展開された変数の内容は伏字にて表示されます。
 
 ## github側の設定について
 github側に以下の設定をしております。
