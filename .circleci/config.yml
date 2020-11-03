@@ -5,5 +5,9 @@ jobs:
     docker:
       - image: nginx:latest
     step:
-      - run: docker build .
-      - curl http://localhost
+      - run:
+          name: Docker Build
+          command: docker build .
+      - run:
+          name: Access Web Page
+          command: curl http://localhost
