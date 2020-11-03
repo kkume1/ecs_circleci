@@ -39,7 +39,7 @@ github側に以下の設定をしております。
   (masterへのマージにはプルリクエストが必要）
 - Require status checks to pass before merging  
   （CircleCIのジョブ実行結果チェック）  
-  「ci/circleci: build-and-push-image」が成功しないと、masterブランチへのプルリクエストがapproveされない。
+ 「ci/circleci: build-and-push-image」が成功しないと、masterブランチへのプルリクエストがapproveされない。
 
 ## 想定する作業フロー
 以下の作業フローを想定しています。
