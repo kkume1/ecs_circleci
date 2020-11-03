@@ -5,9 +5,10 @@ jobs:
     docker:
       - image: nginx:latest
     steps:
+      - checkout
       - run:
-          name: Docker Build
-          command: docker build .
+          name: cp html
+          command: cp html /usr/share/nginx/html
       - run:
           name: Access Web Page
           command: curl http://localhost
