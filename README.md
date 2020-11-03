@@ -22,9 +22,11 @@
 - 「aws-ecs:circleci/aws-ecs@1.2.0」はmasterブランチでのみ実行可能です。
 
 ```
-  filters:
-    branches:
-      only: master
+  - aws-ecs/deploy-service-update:
+    ～～～～～～～～～
+      filters:
+        branches:
+          only: master
 ```
 
 ## circleci側の設定について
