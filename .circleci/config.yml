@@ -1,22 +1,9 @@
 version: 2.1
-orbs:
-  aws-ecr: circleci/aws-ecr@6.10.0
-  aws-ecs: circleci/aws-ecs@1.2.0
-workflows:
-  build-and-deploy:
-    jobs:
-      # build-and-push to ECR
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          repo: 'nginx-sample'
-          tag: '${CIRCLE_SHA1}'
 
-      # deploy-service to ECS
-      - aws-ecs/deploy-service-update:
-          requires:
-            - aws-ecr/build-and-push-image
-          family: 'nginx-sample-Task'          # Task Name
-          service-name: 'nginx-sample-Service' # Service Name
-          cluster-name: 'nginx-sample-Cluster' # cluster Name
-          container-image-name-updates: 'container=nginx-sample,image-and-tag=${AWS_ECR_ACCOUNT_URL}/nginx-sample:${CIRCLE_SHA1}'
-
+jobs:
+  build:
+    docker:
+      - image: nginx:latest
+    step:
+      - run: docker build .
+      - curl http://localhost
