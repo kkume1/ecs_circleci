@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: cp html
-          command: cp html /usr/share/nginx/html
+          command: cp -r html /usr/share/nginx/html
       - run:
           name: Access Web Page
           command: curl http://localhost
